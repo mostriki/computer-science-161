@@ -1,0 +1,49 @@
+﻿CS 161 - Assignment 01
+An Overview of Computers and Programming Languages
+
+
+Assignment:  
+
+
+1. The dealer’s cost of a car is 85% of the listed price. The dealer would accept any offer that is at least $500 over the dealer’s cost. Design an algorithm that prompts the user to input the list price of the car and print the least amount that the dealer would accept for the car.
+        
+1. prompt “Enter list price: ”
+2. input float listPrice
+3. set float dealersCost to 0
+4. set double minOffer to 0
+5. set float dealersCost to float listPrice * 1.85
+6. set double minOffer to float dealersCost + 500  
+7. print "The minimum offer you should make is $" + minOffer
+
+
+1. You are given a list of students’ names and their test scores. Design an algorithm that does the following: 
+1. Calculates the average test scores.
+   1. prompt “Enter scores: ”
+   2. input int testScores array
+   3. set int meanScore to 0
+   4. iterate through int testScores while index is less than testScores length
+   5. set int meanScore to sum of int testScores array / length of int testScore array 
+1. Determines and prints the names of all the students whose test scores are below the average test score.
+   1. prompt “Enter students: ”
+   2. input char students array
+   3. set char belowAvgStudents to array
+   4. iterate through char students while index is less than students length
+   5. if index of testScores is less than meanScore push index of students to belowAvgStudents
+   6. iterate through belowAvgStudents
+   7. print “Below average students: ” + index of char belowAvgStudents
+1. Determines the highest test score.
+   1. set int highScore to 0;
+   2. iterate through int testScores while index is less than testScores length
+   3. if  index is greater than int highScore
+   4. set int highScore to index
+   5. print highScore
+1. Prints the names of all the students whose test scores are the same as the highest test score.
+   1. set char highScoringStudents to empty array
+   2. iterate through int testScores while index is less than testScores length
+   3. if index of testScores is equal to highScore 
+   4. push index names to highScoringStudents
+   5. iterate through highScoringStudents
+   6. print “Students with high scores: ” + index of char highScoringStudents
+(Each of the parts a, b, c, and d must be solved as a subproblem. The main algorithm combines the solutions of the subproblems
+Deliverables:
+a01.txt with all the algorithms written in numbered steps.

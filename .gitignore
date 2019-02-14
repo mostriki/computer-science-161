@@ -1,0 +1,9 @@
+# Jet Brains IDE
+.idea/
+
+# CMake
+cmake-build-*/
+CMakeLists.txt
+
+# Mac
+.DS_Store
