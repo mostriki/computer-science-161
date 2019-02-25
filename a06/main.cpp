@@ -5,7 +5,7 @@
  * *    Project name:   Functions
  * *    Assignment:     06
  * *    Filename:       a06
- * *    Description:
+ * *    Description:    An application to calculate a users gym membership.
  * *
  * *    Sources:        None
  * *
@@ -46,16 +46,20 @@ int main() {
                  << endl << "Below is some information about our fitness center and the costs of membership." << endl;
             cout << endl;
 
+            // call the information function
             information();
 
+            // call the getInfo function using the instantiated variables
             getInfo(senior, months, personal);
 
+            // call the calcCost function with the references from getInfo
             membershipFee = calcCost(senior, months, personal);
 
             cout << "Your total membership fee is $" << fixed << setprecision(2) << membershipFee << endl;
             cout << endl;
 
         } else {
+            // throw a warning if the user enters an invalid character
             cout << "That is not a valid response. Try again." << endl;
             cout << endl;
         }
@@ -109,6 +113,7 @@ void getInfo(bool &senior, int &months, int &personal) {
             senior = false;
             flag = true;
         } else {
+            // throw a warning if the input is invalid
             "Your input was not valid. Please try again.";
         }
     }
@@ -144,18 +149,23 @@ void getInfo(bool &senior, int &months, int &personal) {
     const double personalTrainerDiscount = 0.2;
     const double seniorDiscount = 0.3;
 
+    // calculate the total cost of membership
     total = membershipPrice * months;
 
+    // calculate the cost of membership after a senior discount
     if (senior) {
         total -= total * seniorDiscount;
     }
 
+    // calculate the cost of membership after an annual discount
     if (months >= 12) {
         total -= total * annualDiscount;
     }
 
+    // calculate the total cost of a personal trainer
     trainerTotal = personalTrainerPrice * personal;
 
+    // calculate the cost of a personal trainer after the trainer discount
     if (personal >= 5) {
         trainerTotal -= trainerTotal * personalTrainerDiscount;
         total += trainerTotal;
