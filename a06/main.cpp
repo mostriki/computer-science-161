@@ -12,6 +12,7 @@
  * *******************************************************************************************************************/
 
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -47,23 +48,11 @@ int main() {
 
             information();
 
-            cout << "-1-" << endl;// dont forget to delete this
-            cout << senior << endl;// dont forget to delete this
-            cout << months << endl;// dont forget to delete this
-            cout << personal << endl;// dont forget to delete this
-            cout << "---" << endl;// dont forget to delete this
-
             getInfo(senior, months, personal);
-
-            cout << "-2-" << endl;// dont forget to delete this
-            cout << senior << endl;// dont forget to delete this
-            cout << months << endl;// dont forget to delete this
-            cout << personal << endl;// dont forget to delete this
-            cout << "---" << endl;// dont forget to delete this
 
             membershipFee = calcCost(senior, months, personal);
 
-            cout << "Your total membership fee is" << membershipFee << endl;
+            cout << "Your total membership fee is $" << fixed << setprecision(2) << membershipFee << endl;
             cout << endl;
 
         } else {
@@ -146,28 +135,32 @@ void getInfo(bool &senior, int &months, int &personal) {
 * *******************************************************************************************************************/
 
  double calcCost(bool senior, int months, int personal) {
-    int total = 0;
+    double total = 0;
+    double trainerTotal = 0;
 
-    const int membershipPrice = 50;
-    const int personalTrainePrice = 30;
-    const int seniorDiscount = 0.3;
-    const int annualDiscount = 0.15;
-    const int personalTrainerDiscount = 0.2;
+    const double membershipPrice = 50;
+    const double personalTrainerPrice = 30;
+    const double annualDiscount = 0.15;
+    const double personalTrainerDiscount = 0.2;
+    const double seniorDiscount = 0.3;
 
     total = membershipPrice * months;
 
-    if (months >= 12) {
-        total *= annualDiscount;
+    if (senior) {
+        total -= total * seniorDiscount;
     }
 
-    if (senior) {
-        total *= seniorDiscount;
+    if (months >= 12) {
+        total -= total * annualDiscount;
     }
+
+    trainerTotal = personalTrainerPrice * personal;
 
     if (personal >= 5) {
-        total += (personalTrainePrice * personal) * personalTrainerDiscount;
+        trainerTotal -= trainerTotal * personalTrainerDiscount;
+        total += trainerTotal;
     } else {
-        total += personalTrainePrice * personal;
+        total += trainerTotal;
     }
 
     return total;
