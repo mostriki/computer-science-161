@@ -52,7 +52,7 @@ int main() {
             cout << personal << endl;
             cout << "---" << endl;
 
-            getInfo(bool &senior, int &months, int &personal);
+            getInfo(senior, months, personal);
 //            calcCost(senior, months, personal);
 
 //            cout << "Your total membership fee is" << membershipFee << endl;
@@ -104,8 +104,24 @@ int main() {
 * *******************************************************************************************************************/
 
 void getInfo(bool &senior, int &months, int &personal) {
+    bool flag = false;
+    char input;
+
     cout << "Are you over the age of 60? (y or n): ";
-    cin >> senior;
+    cin >> input;
+
+    while (!flag) {
+        if (input == 'y') {
+            senior = true;
+            flag = true;
+        } else if (input == 'n') {
+            senior = false;
+            flag = true;
+        } else {
+            "Your input was not valid. Please try again.";
+        }
+    }
+
     cout << endl;
 
     cout << "Please enter the number of months you would like to prepay for the membership: ";
