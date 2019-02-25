@@ -17,7 +17,7 @@ using namespace std;
 
 void information();
 void getInfo(bool &senior, int &months, int &personal);
-double calcCost(bool senior, int months, int personal);
+//double calcCost(bool senior, int months, int personal);
 
 int main() {
     char response;
@@ -45,11 +45,24 @@ int main() {
             cout << endl;
 
             information();
-            getInfo(bool &senior, int &months, int &personal);
-            calcCost(senior, months, personal);
 
-            cout << "Your total membership fee is" << fee << endl;
-            cout << endl;
+            cout << "-1-" << endl;
+            cout << senior << endl;
+            cout << months << endl;
+            cout << personal << endl;
+            cout << "---" << endl;
+
+            getInfo(bool &senior, int &months, int &personal);
+//            calcCost(senior, months, personal);
+
+//            cout << "Your total membership fee is" << membershipFee << endl;
+//            cout << endl;
+
+            cout << "-2-" << endl;
+            cout << senior << endl;
+            cout << months << endl;
+            cout << personal << endl;
+            cout << "---" << endl;
 
         } else {
             cout << "That is not a valid response. Try again." << endl;
@@ -114,8 +127,13 @@ void getInfo(bool &senior, int &months, int &personal) {
 * *
 * *******************************************************************************************************************/
 
- double calcCost(bool senior, int months, int personal) {
-    int fee = 0;
-
-
- }
+// double calcCost(bool senior, int months, int personal) {
+//    int membershipFee = 0;
+//    const int membershipPrice = 50;
+//    const int personalTrainePrice = 30;
+//    const int seniorDiscount = 0.3;
+//    const int annualDiscount = 0.15;
+//    const int personalTrainerDiscount = 0.2;
+//
+//    return membershipFee;
+// }
