@@ -1,13 +1,13 @@
 /*********************************************************************************************************************
  * *
- * *    Author: Riki Montgomery
- * *    Date: February 23, 2019
- * *    Project name: Functions
- * *    Assignment: 06
- * *    Filename: a06
+ * *    Author:         Riki Montgomery
+ * *    Date:           February 23, 2019
+ * *    Project name:   Functions
+ * *    Assignment:     06
+ * *    Filename:       a06
  * *    Description:
  * *
- * *    Sources: None
+ * *    Sources:        None
  * *
  * *******************************************************************************************************************/
 
@@ -60,7 +60,14 @@ int main() {
     return 0;
 }
 
-// display the general information about the fitness center and its charges
+/*********************************************************************************************************************
+* *
+* *    Function name:   information
+* *    Parameters:      None
+* *    Description:     A function to display the general information about the fitness center and its charge.
+* *
+* *******************************************************************************************************************/
+
  void information() {
     cout << "General Membership Fee: $50.00 / month." << endl;
     cout << endl;
@@ -71,9 +78,18 @@ int main() {
     cout << "Personal Training Session: $30.00 per session." << endl;
     cout << "If you buy 5 or more sessions, there is a 20% discount per session." << endl;
     cout << endl;
+
+    return;
  }
 
-// collect all the necessary information to determine the membership cost
+/*********************************************************************************************************************
+* *
+* *    Function name:   getInfo
+* *    Parameters:      One boolean, &senior, and two ints, &months and &personal.
+* *    Description:     A function to collect all the necessary information to determine the cost of membership.
+* *
+* *******************************************************************************************************************/
+
 void getInfo(bool &senior, int &months, int &personal) {
     cout << "Are you over the age of 60? (y or n): ";
     cin >> senior;
@@ -86,9 +102,18 @@ void getInfo(bool &senior, int &months, int &personal) {
     cout << "Please enter the number of personal training sessions you would like to purchase: ";
     cin >> personal;
     cout << endl;
+
+    return;
 }
 
-// function to determine the membership cost
+/*********************************************************************************************************************
+* *
+* *    Function name:   calcCost
+* *    Parameters:      One boolean, senior, and two ints, months and personal.
+* *    Description:     A function to determine the cost of membership.
+* *
+* *******************************************************************************************************************/
+
  double calcCost(bool senior, int months, int personal) {
     int fee = 0;
 
