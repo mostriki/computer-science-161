@@ -17,13 +17,14 @@ using namespace std;
 
 void information();
 void getInfo(bool &senior, int &months, int &personal);
-//double calcCost(bool senior, int months, int personal);
+double calcCost(bool senior, int months, int personal);
 
 int main() {
     char response;
     bool senior;
     int months = 0;
     int personal = 0;
+    int membershipFee = 0;
 
     bool quit = false;
 
@@ -46,23 +47,24 @@ int main() {
 
             information();
 
-            cout << "-1-" << endl;
-            cout << senior << endl;
-            cout << months << endl;
-            cout << personal << endl;
-            cout << "---" << endl;
+            cout << "-1-" << endl;// dont forget to delete this
+            cout << senior << endl;// dont forget to delete this
+            cout << months << endl;// dont forget to delete this
+            cout << personal << endl;// dont forget to delete this
+            cout << "---" << endl;// dont forget to delete this
 
             getInfo(senior, months, personal);
-//            calcCost(senior, months, personal);
 
-//            cout << "Your total membership fee is" << membershipFee << endl;
-//            cout << endl;
+            cout << "-2-" << endl;// dont forget to delete this
+            cout << senior << endl;// dont forget to delete this
+            cout << months << endl;// dont forget to delete this
+            cout << personal << endl;// dont forget to delete this
+            cout << "---" << endl;// dont forget to delete this
 
-            cout << "-2-" << endl;
-            cout << senior << endl;
-            cout << months << endl;
-            cout << personal << endl;
-            cout << "---" << endl;
+            membershipFee = calcCost(senior, months, personal);
+
+            cout << "Your total membership fee is" << membershipFee << endl;
+            cout << endl;
 
         } else {
             cout << "That is not a valid response. Try again." << endl;
@@ -143,13 +145,15 @@ void getInfo(bool &senior, int &months, int &personal) {
 * *
 * *******************************************************************************************************************/
 
-// double calcCost(bool senior, int months, int personal) {
-//    int membershipFee = 0;
-//    const int membershipPrice = 50;
-//    const int personalTrainePrice = 30;
-//    const int seniorDiscount = 0.3;
-//    const int annualDiscount = 0.15;
-//    const int personalTrainerDiscount = 0.2;
-//
-//    return membershipFee;
-// }
+ double calcCost(bool senior, int months, int personal) {
+    int membershipFee = 0;
+    const int membershipPrice = 50;
+    const int personalTrainePrice = 30;
+    const int seniorDiscount = 0.3;
+    const int annualDiscount = 0.15;
+    const int personalTrainerDiscount = 0.2;
+
+    
+
+    return membershipFee;
+ }
