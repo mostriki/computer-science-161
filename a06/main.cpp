@@ -146,14 +146,29 @@ void getInfo(bool &senior, int &months, int &personal) {
 * *******************************************************************************************************************/
 
  double calcCost(bool senior, int months, int personal) {
-    int membershipFee = 0;
+    int total = 0;
+
     const int membershipPrice = 50;
     const int personalTrainePrice = 30;
     const int seniorDiscount = 0.3;
     const int annualDiscount = 0.15;
     const int personalTrainerDiscount = 0.2;
 
-    
+    total = membershipPrice * months;
 
-    return membershipFee;
+    if (months >= 12) {
+        total *= annualDiscount;
+    }
+
+    if (senior) {
+        total *= seniorDiscount;
+    }
+
+    if (personal >= 5) {
+        total += (personalTrainePrice * personal) * personalTrainerDiscount;
+    } else {
+        total += personalTrainePrice * personal;
+    }
+
+    return total;
  }
