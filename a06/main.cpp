@@ -114,7 +114,7 @@ void getInfo(bool &senior, int &months, int &personal) {
             flag = true;
         } else {
             // throw a warning if the input is invalid
-            "Your input was not valid. Please try again.";
+            cout << "Your input was not valid. Please try again.";
         }
     }
 
