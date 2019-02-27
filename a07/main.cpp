@@ -1,5 +1,6 @@
-#include <iostream>
 #include <fstream>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -8,6 +9,26 @@ void tempHigh(string months[], int temp[][2], int rows, string &month, int &high
 void tempLow(string months[], int temp[][2], int rows, string &month, int &lowtemp);
 
 int main() {
+
+    // input variable to operate on
+    ifstream inFile;
+
+    // output variable to operate on
+    ofstream outFile;
+
+    string filePath;
+
+    cout << "Enter the file path: \n";
+    getline(cin, filePath);
+
+    // open the input and output streams
+    inFile.open(filePath);
+    outFile.open("output.txt");
+
+    // throw error if the file path does not exist
+    if (!inFile) {
+        throw runtime_error("Could not find file");
+    }
 
 //    Maximum temp was 81 degrees in July.
 
