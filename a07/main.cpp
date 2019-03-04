@@ -1,7 +1,7 @@
 /**********************************************************************************************************************
  * *
  * *    Author: Riki Montgomery
- * *    Date: March 01, 2019
+ * *    Date: March 04, 2019
  * *    Project: Arrays and Strings
  * *    Filename: a07
  * *    Description:
@@ -25,8 +25,6 @@ int main() {
     ifstream infile;
 
     int rows = 12;
-//    int hightemp = 0;
-//    int lowtemp = 0;
     string filePath;
     string month;
     string months[rows];
@@ -46,6 +44,8 @@ int main() {
     // while loop to read all lines of text from input file
     loadData(infile, months, temp, rows);
 
+
+
     infile.close();
 
     return 0;
@@ -59,6 +59,10 @@ int main() {
  * *
  *********************************************************************************************************************/
 void loadData(ifstream &infile, string months[], int temp[][2], int &rows) {
+    int hightemp = 0;
+    int lowtemp = 0;
+    string month = "MONTH";
+
     while (!infile.eof()) {
         int r, c;
 
@@ -71,18 +75,18 @@ void loadData(ifstream &infile, string months[], int temp[][2], int &rows) {
         }
     }
 
-    // print months array
-    for (int i = 0; i < rows; i++) {
-        cout << "[" << months[i] << "] " << endl;
-    }
+    tempHigh(months, temp, rows, month, hightemp);
 
-    // print temp 2D array
-    for (int r = 0; r < rows; r++) {
-        for(int c = 0; c < 2; c++) {
-            cout << "[" << temp[r][c] << "] ";
-        }
-        cout << endl;
-    }
+    cout << endl;
+
+    cout << "Maximum temp was " << hightemp << " degrees in " << month << "." << endl;
+
+    cout << endl;
+
+    tempLow(months, temp, rows, month, lowtemp);
+
+    cout << "Minimum temp was " << lowtemp << " degrees in " << month << "." << endl;
+
 }
 
 /**********************************************************************************************************************
@@ -92,9 +96,19 @@ void loadData(ifstream &infile, string months[], int temp[][2], int &rows) {
  * *    Description:    Finds and updates the high temperature and the corresponding month of the year
  * *
  *********************************************************************************************************************/
-//void tempHigh(string months[], int temp[][2], int rows, string &month, int &hightemp) {
-//
-//}
+void tempHigh(string months[], int temp[][2], int rows, string &month, int &hightemp) {
+    int highestHigh = 0;
+
+    for (int i = 0; i < rows ; i++) {
+        for (int j = 0; j < 2; j++) {
+            if (highestHigh < temp[i][0]) {
+                highestHigh = temp[i][0];
+                month = months[i];
+            }
+        }
+    }
+    hightemp = highestHigh;
+}
 
 /**********************************************************************************************************************
  * *
@@ -103,6 +117,16 @@ void loadData(ifstream &infile, string months[], int temp[][2], int &rows) {
  * *    Description:    Finds and updates the low temperature and the corresponding month of the year
  * *
  *********************************************************************************************************************/
-//void tempLow(string months[], int temp[][2], int rows, string &month, int &lowtemp) {
-//
-//}
+void tempLow(string months[], int temp[][2], int rows, string &month, int &lowtemp) {
+    int lowestLow = temp[0][1];
+
+    for (int i = 0; i < rows ; i++) {
+        for (int j = 0; j < 2; j++) {
+            if (lowestLow > temp[i][1]) {
+                lowestLow = temp[i][1];
+                month = months[i];
+            }
+        }
+    }
+    lowtemp = lowestLow;
+}
