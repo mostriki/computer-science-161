@@ -1,44 +1,54 @@
-#include <iostream>
+#include <fstream>  // ifstream, ofstream, .open()
+#include <iostream> // cout, cin
+#include <string>   // string
 
 using namespace std;
 
-void printArray(int n[], int size);
-void addTwo(int n[], int size);
-
+//void loadData(ifstream &infile, string months[], int temp[][2], int &rows);
+//void tempHigh(string months[], int temp[][2], int rows, string &month, int &hightemp);
 int main() {
-    int data[5] = {1, 2, 3, 4, 5};
-    printArray(data, 5);
-    addTwo(data, 5);
-    printArray(data, 5);
-    // data[0] = 10;
-    // data[1] = 20;
-    // data[2] = 30;
-    // data[3] = -40;
-    // data[4] = 50;
+    // input variable to operate on
+    ifstream inFile;
 
-    // cout << data << endl;
-    // cout << data[0] << endl;
-    // cout << data[1] << endl;
-    // cout << data[2] << endl;
-    // cout << data[3] << endl;
-    // cout << data[4] << endl;
+    string filePath;
+    int hightemp = 0;
+    int lowtemp = 0;
+    int rows = 12;
+    int cols = 2;
+    int temp[rows][cols];
+    int count = 0;
+    int r = 0;
+    int c = 0;
 
-    // for (int i = 0; i < 5; i++ ) {
-    //   cout << data[i] << endl;
-    // }
+    cout << "Enter the file path: \n";
+    getline(cin, filePath);
 
-}
+    // open the input and output streams
+    inFile.open(filePath);
 
-void addTwo(int n[], int size) {
-    for (int i = 0; i < size; i++) {
-      n[i] = n[i] + 2;
-    }
-}
-
-void printArray(int n[], int size) {
-    for (int i = 0; i < size; i++) {
-      cout << "[" << n[i] << "] ";
+    // throw error if the file path does not exist
+    if (!inFile) {
+        throw runtime_error("Could not find file!");
     }
 
-    cout << endl;
+    while (!inFile.eof()) {
+//        inFile >> hightemp >> lowtemp;
+
+        for(r = 0; r < rows; r++) {
+            for(c = 0; c < cols; c++) {
+                inFile >> temp[r][c];
+            }
+        }
+    }
+
+    for (int r = 0; r < rows; r++) {
+        for(int c = 0; c < cols; c++) {
+            cout << "[" << temp[r][c] << "] ";
+        }
+        cout << endl;
+    }
+
+    inFile.close();
+
+    return 0;
 }
