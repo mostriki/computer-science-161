@@ -2,8 +2,8 @@
  * *
  * *    Author:         Riki Montgomery
  * *    Date:           March 5, 2019
- * *    Project:        Week 8 warm up problem
- * *    Filename:       wk8-warmup
+ * *    Project:        Week 9 warm up problem
+ * *    Filename:       wk9-warmup
  * *    Description:
  * *
  * *    Sources:     None
@@ -36,7 +36,7 @@ int main() {
         cin >> quantity[count];
 
         while (cin.fail()) {
-            cout "Try entering a valid number.\n";
+            cout << "Try entering a valid number.\n";
             cin.clear();
             cin.ignore(256,'\n');
             cin >> quantity[count];
