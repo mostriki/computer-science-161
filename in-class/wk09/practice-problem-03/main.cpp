@@ -1,14 +1,58 @@
+#include <iostream>
+
+using namespace std;
+
+bool dividesSelf(int num);
+
+int main() {
+    double number = 0;
+    bool positive = false;
+    bool divisible;
+
+    cout << endl;
+
+    while (!positive) {
+        cout << endl << "Enter a positive integer to find out if it is divisible by itself: ";
+        cin >> number;
+
+        if (number >= 0) {
+            positive = true;
+        } else {
+            cout << endl << "Make sure you enter a positive integer. Try again." << endl;
+        }
+    }
+
+    divisible = dividesSelf(number);
+
+    cout << endl;
+
+    if (divisible == true) {
+        cout << number << " is divisible by itself." << endl;
+    } else {
+        cout << "Sorry, " << number << " is not divisible by itself." << endl;
+    }
 
 
-//Mod is back! Write a program to prompt a user for an integer and then pass the integer to a
-//function dividesSelf() which returns true if it divides itself, false otherwise.
-//We'll say that a positive int divides itself if every digit in the number divides
-//into the number evenly. So for example 128 divides itself since 1, 2, and 8 all
-//divide into 128 evenly. We'll say that 0 does not divide into anything evenly,
-//so no number with a 0 digit divides itself. Note: use % to get the
-//rightmost digit, and / to discard the rightmost digit. Add a loop in
-//main() to keep prompting the user until they are done.
-//
-//dividesSelf(128) → true
-//dividesSelf(12) → true
-//dividesSelf(120) → false
+    return 0;
+}
+
+bool dividesSelf(int num) {
+    int sum = 0;
+    bool result;
+
+    for(int i = num; i > 0; i /=10) {
+        sum = i % 10;
+
+        if (sum == 0) {
+            result = false;
+            break;
+        } else if (num % sum != 0) {
+            result = false;
+            break;
+        } else {
+            result = true;
+        }
+    }
+
+    return result;
+}
