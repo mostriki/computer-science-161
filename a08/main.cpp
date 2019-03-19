@@ -102,20 +102,16 @@ void loadData(ifstream &infile, Temperature data[], int &size) {
  *********************************************************************************************************************/
 Temperature averageHigh(Temperature data[], int size) {
     int temp = data[0].highTemp;
+    int highIndex = 0;
 
     // for loop to find the highest temp
     for(int i = 1; i < size; i++) {
         if (data[i].highTemp > temp) {
             temp = data[i].highTemp;
+            highIndex = i;
         }
     }
-
-    // for loop to return the struct with the highest temp
-    for(int j = 0; j < size; j++) {
-        if (data[j].highTemp == temp) {
-            return data[j];
-        }
-    }
+    return data[highIndex];
 }
 
 /**********************************************************************************************************************
@@ -128,18 +124,14 @@ Temperature averageHigh(Temperature data[], int size) {
  *********************************************************************************************************************/
 Temperature averageLow(Temperature data[], int size) {
     int temp = data[0].lowTemp;
+    int lowIndex = 0;
 
     // for loop to find the lowest temp
     for(int i = 1; i < size; i++) {
         if (data[i].lowTemp < temp) {
             temp = data[i].lowTemp;
+            lowIndex = i;
         }
     }
-
-    // for loop to return the struct with the lowest temp
-    for(int j = 0; j < size; j++) {
-        if (data[j].lowTemp == temp) {
-            return data[j];
-        }
-    }
+    return data[lowIndex];
 }
