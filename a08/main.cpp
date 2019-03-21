@@ -33,6 +33,8 @@ int main() {
     int size = 12;
     string filePath;
     Temperature data[size];
+    Temperature highMonth;
+    Temperature lowMonth;
     string month;
     int high = 0;
     int low = 0;
@@ -52,21 +54,19 @@ int main() {
 
     cout << endl;
 
-    month = averageHigh(data, size).month;
-    high = averageHigh(data, size).highTemp;
+    highMonth = averageHigh(data, size);
 
     cout << "At a scorching "
-         << high << " degrees Fahrenheit, "
-         << month << " was the hottest month on record." << endl;
+         << highMonth .highTemp << " degrees Fahrenheit, "
+         << highMonth.month << " was the hottest month on record." << endl;
 
     cout << endl;
 
-    month = averageLow(data, size).month;
-    low = averageLow(data, size).lowTemp;
+    lowMonth = averageLow(data, size);
 
     cout << "At a chilly "
-         << low << " degrees Fahrenheit, "
-         << month << " was the coolest month on record." << endl;
+         << lowMonth.lowTemp << " degrees Fahrenheit, "
+         << lowMonth.month << " was the coolest month on record." << endl;
 
     infile.close();
 
